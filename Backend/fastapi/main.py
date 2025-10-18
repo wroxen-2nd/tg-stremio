@@ -148,4 +148,4 @@ def health_check():
 
 if __name__ == "__main__":
     # Bind to all interfaces and use port 8000
-    app.run(host="0.0.0.0", port=8000)
+    app.run(host="0.0.0.0", port=8080)
