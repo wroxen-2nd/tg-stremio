@@ -135,3 +135,17 @@ async def get_workloads(_: bool = Depends(require_auth)):
 @app.exception_handler(401)
 async def auth_exception_handler(request: Request, exc):
     return RedirectResponse(url="/login", status_code=302)
+
+
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/healthz")
+def health_check():
+    return "OK", 200
+
+if __name__ == "__main__":
+    # Bind to all interfaces and use port 8000
+    app.run(host="0.0.0.0", port=8000)
