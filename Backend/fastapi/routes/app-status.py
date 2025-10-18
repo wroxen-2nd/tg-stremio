@@ -1,7 +1,7 @@
-from fastapi import FastAPI
+from flask import Flask
 
-app = FastAPI()
+app = Flask(__name__)
 
-@app.get("/health-status")
-def health_status():
-    return {"status": "ok", "message": "Telegram-Stremio server running 🚀"}
+@app.route('/health-status')
+def hello_world():
+    return 'Telegram stremio'
