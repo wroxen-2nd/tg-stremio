@@ -1,9 +1,5 @@
-#!/bin/bash
-# Run update.py first
-uv run update.py
+# Start health server in background
+python3 health.py &
 
-# Run Backend and app.py concurrently
-uv run -m Backend & uv run app.py &
-
-# Wait for either process to exit
-wait -n
+# Start your main scripts
+uv run update.py && uv run -m Backend
