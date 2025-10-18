@@ -135,3 +135,7 @@ async def get_workloads(_: bool = Depends(require_auth)):
 @app.exception_handler(401)
 async def auth_exception_handler(request: Request, exc):
     return RedirectResponse(url="/login", status_code=302)
+
+@app.get("/health-status")
+async def health_status():
+    return {"status": "ok", "message": "Telegram Stremio Media Server is alive 🚀"}
