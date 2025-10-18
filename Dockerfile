@@ -8,7 +8,7 @@ ENV PATH="/app/.venv/bin:$PATH"
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         build-essential \
-	bash \
+        bash \
         git \
         curl \
         ca-certificates \
@@ -18,7 +18,12 @@ RUN apt-get update && \
 
 WORKDIR /app
 COPY . .
+
 RUN uv lock
 RUN uv sync --locked
 RUN chmod +x start.sh
+
+# Expose port 8000 for health checks
+EXPOSE 8000
+
 CMD ["bash", "start.sh"]
