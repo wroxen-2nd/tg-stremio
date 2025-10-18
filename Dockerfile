@@ -22,6 +22,7 @@ COPY . .
 RUN uv lock
 RUN uv sync --locked
 RUN chmod +x start.sh
+RUN pip install Flask
 
 # Expose port 8000 for health checks
 EXPOSE 8000
